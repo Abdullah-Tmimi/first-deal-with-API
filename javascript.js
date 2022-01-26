@@ -34,7 +34,7 @@ async function theApi() {
       country.forEach((el) => el.classList.remove("active"))
       country[1].classList.add("active")
     }
-  }else {
+  } else {
     country[0].classList.add("active")
   }
 
@@ -47,11 +47,16 @@ async function theApi() {
       body.classList.add("body-cold")
       icon.src = "./snowflake.png"
 
-    } else {icon.src = "./snowflake.png"}
+    } else {
+      body.className = ""
+      wether.classList.remove("wether-cold")
+      wether.classList.add("wether-hot")
+      body.classList.add("body-hot")
+      icon.src = "./sun.png"
+    }
     temp.innerHTML = `${riyadhTemp}<span></span>`
     wetherText.textContent = `${riyadhDiscrp}`
     countryName.textContent = "الرياض"
-
     localStorage.setItem("active","riyadh")
 
   } else if (count.textContent == "جدة") {
